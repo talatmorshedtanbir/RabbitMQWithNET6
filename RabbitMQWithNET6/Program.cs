@@ -1,6 +1,7 @@
 using MassTransit;
 using Microsoft.OpenApi.Models;
 using RabbitMQWithNET6.Common.Commands;
+using RabbitMQWithNET6.Consumer.Concrete;
 using RabbitMQWithNET6.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +17,10 @@ builder.Services.AddMassTransit(mt => mt.AddMassTransit(x =>
         {
             c.Username(rabbitMqSettings.UserName);
             c.Password(rabbitMqSettings.Password);
+        });
+        cfg.ReceiveEndpoint("samplequeue", (c) =>
+        {
+            c.Consumer<CommandMessageConsumer>();
         });
     });
 }));

@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RabbitMQWithNET6.Common\RabbitMQWithNET6.Common.csproj" />
+    <ProjectReference Include="..\RabbitMQWithNET6.Consumer\RabbitMQWithNET6.Consumer.csproj" />
   </ItemGroup>
 
 </Project>

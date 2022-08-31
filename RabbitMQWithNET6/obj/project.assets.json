@@ -475,6 +475,20 @@
         "runtime": {
           "bin/placeholder/RabbitMQWithNET6.Common.dll": {}
         }
+      },
+      "RabbitMQWithNET6.Consumer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "MassTransit": "8.0.6",
+          "RabbitMQWithNET6.Common": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RabbitMQWithNET6.Consumer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RabbitMQWithNET6.Consumer.dll": {}
+        }
       }
     }
   },
@@ -1429,6 +1443,11 @@
       "type": "project",
       "path": "../RabbitMQWithNET6.Common/RabbitMQWithNET6.Common.csproj",
       "msbuildProject": "../RabbitMQWithNET6.Common/RabbitMQWithNET6.Common.csproj"
+    },
+    "RabbitMQWithNET6.Consumer/1.0.0": {
+      "type": "project",
+      "path": "../RabbitMQWithNET6.Consumer/RabbitMQWithNET6.Consumer.csproj",
+      "msbuildProject": "../RabbitMQWithNET6.Consumer/RabbitMQWithNET6.Consumer.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1437,6 +1456,7 @@
       "MassTransit.RabbitMQ >= 8.0.6",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.17.0",
       "RabbitMQWithNET6.Common >= 1.0.0",
+      "RabbitMQWithNET6.Consumer >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
@@ -1475,6 +1495,9 @@
           "projectReferences": {
             "C:\\Tanbir Personal Files\\Dotnet Projects\\RabbitMQWithNET6\\RabbitMQWithNET6.Common\\RabbitMQWithNET6.Common.csproj": {
               "projectPath": "C:\\Tanbir Personal Files\\Dotnet Projects\\RabbitMQWithNET6\\RabbitMQWithNET6.Common\\RabbitMQWithNET6.Common.csproj"
+            },
+            "C:\\Tanbir Personal Files\\Dotnet Projects\\RabbitMQWithNET6\\RabbitMQWithNET6.Consumer\\RabbitMQWithNET6.Consumer.csproj": {
+              "projectPath": "C:\\Tanbir Personal Files\\Dotnet Projects\\RabbitMQWithNET6\\RabbitMQWithNET6.Consumer\\RabbitMQWithNET6.Consumer.csproj"
             }
           }
         }
