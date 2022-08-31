@@ -32,3 +32,5 @@ C:\Tanbir Personal Files\Dotnet Projects\RabbitMQWithNET6\RabbitMQWithNET6\obj\D
 C:\Tanbir Personal Files\Dotnet Projects\RabbitMQWithNET6\RabbitMQWithNET6\obj\Debug\net6.0\RabbitMQWithNET6.pdb
 C:\Tanbir Personal Files\Dotnet Projects\RabbitMQWithNET6\RabbitMQWithNET6\obj\Debug\net6.0\RabbitMQWithNET6.genruntimeconfig.cache
 C:\Tanbir Personal Files\Dotnet Projects\RabbitMQWithNET6\RabbitMQWithNET6\obj\Debug\net6.0\ref\RabbitMQWithNET6.dll
+C:\Tanbir Personal Files\Dotnet Projects\RabbitMQWithNET6\RabbitMQWithNET6\bin\Debug\net6.0\RabbitMQWithNET6.Common.dll
+C:\Tanbir Personal Files\Dotnet Projects\RabbitMQWithNET6\RabbitMQWithNET6\bin\Debug\net6.0\RabbitMQWithNET6.Common.pdb
