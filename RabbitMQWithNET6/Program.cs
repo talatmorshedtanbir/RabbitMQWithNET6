@@ -1,29 +1,25 @@
 using MassTransit;
 using Microsoft.OpenApi.Models;
 using RabbitMQWithNET6.Common.Commands;
-using RabbitMQWithNET6.Consumer.Concrete;
-using RabbitMQWithNET6.Settings;
+using RabbitMQWithNET6.Common.Models;
+using RabbitMQWithNET6.Common.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Configure Rabbit MQ
 var rabbitMqSettings = builder.Configuration.GetSection(nameof(RabbitMqSettings)).Get<RabbitMqSettings>();
 
-builder.Services.AddMassTransit(mt => mt.AddMassTransit(x =>
+builder.Services.AddMassTransit(x =>
 {
-    x.UsingRabbitMq((cntxt, cfg) =>
+    x.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(config =>
     {
-        cfg.Host(new Uri(rabbitMqSettings.Uri), "/", c =>
+        config.Host(new Uri(rabbitMqSettings.Uri), h =>
         {
-            c.Username(rabbitMqSettings.UserName);
-            c.Password(rabbitMqSettings.Password);
+            h.Username(rabbitMqSettings.UserName);
+            h.Password(rabbitMqSettings.Password);
         });
-        cfg.ReceiveEndpoint("samplequeue", (c) =>
-        {
-            c.Consumer<CommandMessageConsumer>();
-        });
-    });
-}));
+    }));
+});
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -50,6 +46,20 @@ app.MapControllers();
 app.MapPost("/sendmessage", (long id, string message, IPublishEndpoint publishEndPoint) =>
 {
     publishEndPoint.Publish(new CommandMessage(id, message)); ;
+});
+
+app.MapPost("/todo", async (Todo todoModel, ISendEndpointProvider sendEndpointProvider) =>
+{
+    if (todoModel is not null)
+    {
+        var endPoint = await sendEndpointProvider.GetSendEndpoint(
+            new Uri(string.Concat(rabbitMqSettings.Uri, "/", rabbitMqSettings.TodoQueue)));
+
+        await endPoint.Send(todoModel);
+        return Results.Ok();
+    }
+
+    return Results.BadRequest();
 });
 
 app.Run();

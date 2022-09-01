@@ -1,4 +1,6 @@
-﻿namespace RabbitMQWithNET6.Consumer.Abstract
+﻿using MassTransit;
+
+namespace RabbitMQWithNET6.Consumer.Abstract
 {
     public interface IConsumer<in TMessage> : IConsumer
     where TMessage : class

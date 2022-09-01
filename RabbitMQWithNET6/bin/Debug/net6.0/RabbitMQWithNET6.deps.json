@@ -12,6 +12,7 @@
           "MassTransit.RabbitMQ": "8.0.6",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.17.0",
           "RabbitMQWithNET6.Common": "1.0.0",
+          "RabbitMQWithNET6.Consumer": "1.0.0",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
@@ -210,6 +211,15 @@
       "RabbitMQWithNET6.Common/1.0.0": {
         "runtime": {
           "RabbitMQWithNET6.Common.dll": {}
+        }
+      },
+      "RabbitMQWithNET6.Consumer/1.0.0": {
+        "dependencies": {
+          "MassTransit": "8.0.6",
+          "RabbitMQWithNET6.Common": "1.0.0"
+        },
+        "runtime": {
+          "RabbitMQWithNET6.Consumer.dll": {}
         }
       }
     }
@@ -431,6 +441,11 @@
       "hashPath": "system.threading.channels.6.0.0.nupkg.sha512"
     },
     "RabbitMQWithNET6.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RabbitMQWithNET6.Consumer/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

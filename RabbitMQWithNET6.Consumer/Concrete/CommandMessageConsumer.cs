@@ -8,7 +8,7 @@ namespace RabbitMQWithNET6.Consumer.Concrete
         public async Task Consume(ConsumeContext<CommandMessage> context)
         {
             var message = context.Message;
-            await Console.Out.WriteLineAsync($ "Message from Producer : {message.MessageString}");
+            await Console.Out.WriteLineAsync($"Message from Producer : {message.MessageString}");
             // Do something useful with the message
         }
     }
