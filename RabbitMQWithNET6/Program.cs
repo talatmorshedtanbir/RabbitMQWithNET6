@@ -3,6 +3,7 @@ using Microsoft.OpenApi.Models;
 using RabbitMQWithNET6.Common.Commands;
 using RabbitMQWithNET6.Common.Models;
 using RabbitMQWithNET6.Common.Settings;
+using RabbitMQWithNET6.Consumer.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,16 @@ builder.Services.AddMassTransit(x =>
         {
             h.Username(rabbitMqSettings.UserName);
             h.Password(rabbitMqSettings.Password);
+        });
+
+        config.ReceiveEndpoint("queue", (c) =>
+        {
+            c.Consumer<CommandMessageConsumer>();
+        });
+
+        config.ReceiveEndpoint(rabbitMqSettings.TodoQueue, (c) =>
+        {
+            c.Consumer<TodoCommandMessageConsumer>();
         });
     }));
 });
@@ -55,7 +66,7 @@ app.MapPost("/todo", async (Todo todoModel, ISendEndpointProvider sendEndpointPr
         var endPoint = await sendEndpointProvider.GetSendEndpoint(
             new Uri(string.Concat(rabbitMqSettings.Uri, "/", rabbitMqSettings.TodoQueue)));
 
-        await endPoint.Send(todoModel);
+        await endPoint.Send(new TodoCommandMessage(todoModel));
         return Results.Ok();
     }
 
