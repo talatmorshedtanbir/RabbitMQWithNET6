@@ -35,3 +35,4 @@ C:\Tanbir Personal Files\Dotnet Projects\RabbitMQWithNET6\RabbitMQWithNET6\bin\D
 C:\Tanbir Personal Files\Dotnet Projects\RabbitMQWithNET6\RabbitMQWithNET6\bin\Debug\net6.0\RabbitMQWithNET6.Common.pdb
 C:\Tanbir Personal Files\Dotnet Projects\RabbitMQWithNET6\RabbitMQWithNET6\bin\Debug\net6.0\RabbitMQWithNET6.Consumer.dll
 C:\Tanbir Personal Files\Dotnet Projects\RabbitMQWithNET6\RabbitMQWithNET6\bin\Debug\net6.0\RabbitMQWithNET6.Consumer.pdb
+C:\Tanbir Personal Files\Dotnet Projects\RabbitMQWithNET6\RabbitMQWithNET6\obj\Debug\net6.0\RabbitMQWithNET6.MvcApplicationPartsAssemblyInfo.cs
